@@ -16,11 +16,11 @@ Go to 127.0.0.1:8000/init_app/upload/ (or to your own custom address). The file 
 
 ### List contains of given folder
 
-Go to 127.0.0.1:8000/source/ there you will see a root folder with its contains. You can walk down the folders to view or delete them(notice that you can delete ONLY EMPTY folders). Also you can delete or download all files which are listed there.
+Go to 127.0.0.1:8000/init_app/source/ there you will see a root folder with its contains. You can walk down the folders to view or delete them(notice that you can delete ONLY EMPTY folders). Also you can delete or download all files which are listed there.
 
 ### List all folders
 
-Go to 127.0.0.1:8000/full_source/ to view every folder and file which are contained within the root directory. 
+Go to 127.0.0.1:8000/init_app/full_source to view every folder and file which are contained within the root directory. 
 
 
 ---- 

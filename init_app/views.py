@@ -92,6 +92,7 @@ def download_file(request, path):
     response['Content-Disposition'] = 'inline; filename=' + file_name
     return response
 
+
 @api_view(['GET', 'POST'])
 def source(request, path):
     """URL handler for list function of source folder."""
@@ -110,6 +111,7 @@ def source(request, path):
             return response
 
     context = {}
+    print("HERE: " + path)
     resp_arr = get_folder_contains(path)
     context['results'] = resp_arr
 #   print(path)
@@ -127,14 +129,13 @@ def full_source(request):
 
 
 @api_view(['GET', 'POST'])
-def file_upload(request, path):
+def file_upload(request):
     """File upload function."""
     context = {}
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-        print(fs.url(name))
+        context['name'] = name
         print("New file: " + name)
     return render(request, 'upload.html', context)

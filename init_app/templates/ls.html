@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form method="post" enctype="multipart/form-data">
+      <br>
+      Create new folder here:<br>
+      <input type="text" name="create_folder" value="">
+      <br><br>
+      <input type="submit" value="Create folder">
+    </form>
+
+    {% for r in results %}
+      {% if r.type == "file" %}
+          <p>
+            <a>{{ r.name }}<a>
+            <form method="post" enctype="multipart/form-data">
+              <button type="submit" name="delete_file" value="{{ r.name }}">Delete file</button>
+              <button type="submit" name="download_file" value="{{ r.name }}">Download file</button>
+            </form>
+          </p>
+      {% else %}
+          <p>
+            <a href="{{ r.url }}">{{ r.name }}</a>
+            <form method="post" enctype="multipart/form-data">
+              <button type="submit" name="delete_dir" value="{{ r.name }}">Delete folder</button>
+            </form>
+          </p>
+      {% endif %}
+    {% endfor %}
+
+  </body>
+</html>
